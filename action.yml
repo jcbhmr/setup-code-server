@@ -1,6 +1,6 @@
 name: Setup code-server environment
 author: Jacob Hummer <jcbhmr@outlook.com>
-description:
+description: 💻 Install code-server to run a local VS Code web instance
 branding:
   icon: box
   color: blue
