@@ -1,5 +1,21 @@
 name: Test action
-on: push
+on:
+  push:
+    branches: "main"
+    paths-ignore:
+      - LICENSE
+      - README.md
+      - .github/**
+      - "!.github/workflows/test-action.yml"
+  pull_request:
+    paths-ignore:
+      - LICENSE
+      - README.md
+      - .github/**
+      - "!.github/workflows/test-action.yml"
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   no-inputs:
     runs-on: ubuntu-latest
