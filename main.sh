@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -ex
 
 if [[ $RUNNER_OS == Windows ]]; then
   old_node_version=$(node --version)
