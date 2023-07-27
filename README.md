@@ -1,10 +1,8 @@
 # Setup code-server
 
-## Usage
+💻 Install [code-server] to run a local VS Code web instance
 
-👇 This demo workflow will install code-server and then start a new VS Code web
-IDE instance that you can view using something like [ngrok] or [cloudflared].
-Check out the [other @cidebug actions] like [setup-ngrok] or [setup-cloudflared]
+## Usage
 
 ```yml
 on: push
@@ -22,5 +20,8 @@ After code-server has been setup, you can run it like this:
 code-server
 ```
 
-📚 Make sure you check out the code-server documentation for a full account of
+📚 Make sure you check out [the code-server documentation] for a full list of
 all the options that you can play around with!
+
+[code-server]: https://github.com/coder/code-server
+[the code-server documentation]: https://coder.com/docs/code-server/latest/guide

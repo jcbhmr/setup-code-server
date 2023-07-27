@@ -2,7 +2,7 @@
 set -ex
 
 if [[ $RUNNER_OS == Windows ]]; then
-  export FORCE_NODE_VERSION=1
+  export FORCE_NODE_VERSION=18
   old_script_shell=$(npm config get script-shell)
   npm config set script-shell 'C:\Program Files\Git\bin\bash.exe'
   npm install --global "code-server@$INPUT_CODE_SERVER_VERSION" --unsafe-perm
