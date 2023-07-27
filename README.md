@@ -11,13 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: cidebug/setup-code-server@v1
-      - run: code-server
-```
-
-After code-server has been setup, you can run it like this:
-
-```sh
-code-server
+      - uses: cidebug/setup-cloudflare-tunnel@v1
+      - run: |
+          code-server --auth none --bind-addr 0.0.0.0:4000 &
+          cloudflared tunnel --url http://localhost:4000 &
+          wait -n
 ```
 
 📚 Make sure you check out [the code-server documentation] for a full list of
