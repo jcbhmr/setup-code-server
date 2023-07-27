@@ -16,6 +16,6 @@ runs:
   using: composite
   steps:
     - shell: bash
-      run: '"$GITHUB_ACTIONS_PATH/main.sh"'
+      run: '"$GITHUB_ACTION_PATH/main.sh"'
       env:
         INPUT_CODE_SERVER_VERSION: ${{ inputs.code-server-version }}
