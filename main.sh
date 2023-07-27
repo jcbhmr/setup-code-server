@@ -2,11 +2,13 @@
 set -ex
 
 if [[ $RUNNER_OS == Windows ]]; then
+  pushd "$(mktemp -d)"
   export FORCE_NODE_VERSION=18
   old_script_shell=$(npm config get script-shell)
   npm config set script-shell 'C:\Program Files\Git\bin\bash.exe'
   npm install --global "code-server@$INPUT_CODE_SERVER_VERSION" --unsafe-perm
   npm config set script-shell "$old_script_shell"
+  popd
 else
   if [[ $INPUT_CODE_SERVER_VERSION == latest ]]; then
     curl -fsSL https://code-server.dev/install.sh | sh -s -- \
