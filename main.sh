@@ -14,6 +14,11 @@ if [[ $RUNNER_OS == Windows ]]; then
   npm config set script-shell "$old_script_shell"
   nvm use "$old_node_version"
 else
-  curl -fsSL https://code-server.dev/install.sh | sh -s -- \
-    --prefix=/usr/local --version "$INPUT_CODE_SERVER_VERSION"
+  if [[ $INPUT_CODE_SERVER_VERSION == latest]]; then
+    curl -fsSL https://code-server.dev/install.sh | sh -s -- \
+      --prefix=/usr/local
+  else
+    curl -fsSL https://code-server.dev/install.sh | sh -s -- \
+      --prefix=/usr/local --version "$INPUT_CODE_SERVER_VERSION"
+  fi
 fi
