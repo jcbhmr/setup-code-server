@@ -49,7 +49,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: ./
-      - uses: ttyci/setup-cloudflared@v1
+      - uses: debugci/setup-cloudflared@v1
       - run: nohup code-server --auth none --bind-addr 0.0.0.0:4000 &
       - run: nohup cloudflared tunnel --url http://localhost:4000 &
       - run: sleep 5m
