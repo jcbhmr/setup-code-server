@@ -1,4 +1,4 @@
-name: Setup code-server environment
+name: Setup Coder code-server
 author: Jacob Hummer <jcbhmr@outlook.com>
 description: 💻 Install code-server to run a local VS Code web instance
 branding:
