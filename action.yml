@@ -1,17 +1,21 @@
-name: 'VS Code Server Action'
-author: 'Christian Bromann <christian@stateful.com>'
-description: 'A GitHub Action that allows to debug GitHub workflows using VS Code'
-inputs:
-  machineName:
-    description: 'Name of the machine to access (default: GitHub Action run id)'
-    required: false
-  timeout:
-    description: 'The time until the action continues the build of the machine does not get authorised'
-    required: true
-    default: '30000' # 30s
-runs:
-  using: 'node16'
-  main: 'dist/index.js'
+name: Setup code-server environment
+author: Jacob Hummer <jcbhmr@outlook.com>
+description:
 branding:
-  icon: 'box'
-  color: 'purple'
+  icon: box
+  color: blue
+inputs:
+  code-server-version:
+    description: >
+      Which version of code-server to install. This defaults to the latest
+      stable release. Use 'edge' to download the latest prerelease, or a 'N.N.N'
+      versions specifier if you wish. Use 'latest' (the default) to download the
+      latest version.
+    default: latest
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: '"$GITHUB_ACTIONS_PATH/main.sh"'
+      env:
+        INPUT_CODE_SERVER_VERSION: ${{ inputs.code-server-version }}
