@@ -6,11 +6,7 @@ branding:
   color: blue
 inputs:
   code-server-version:
-    description: >
-      Which version of code-server to install. This defaults to the latest
-      stable release. Use 'edge' to download the latest prerelease, or a 'N.N.N'
-      versions specifier if you wish. Use 'latest' (the default) to download the
-      latest version.
+    description: Which version of code-server to install. This defaults to the latest stable release. Use `edge` to download the latest prerelease, or a `N.N.N` versions specifier if you wish. Use `latest` (the default) to download the latest version. This field **does not** support semver specifiers.
     default: latest
 runs:
   using: composite
