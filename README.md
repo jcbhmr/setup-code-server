@@ -37,7 +37,7 @@ jobs:
   code-server:
     runs-on: ubuntu-latest
     steps:
-      - uses: debugci/setup-code-server@v1
+      - uses: jcbhmr/setup-code-server@v1
       - uses: debugci/setup-cloudflared@v1
       - run: nohup code-server --auth none --bind-addr 0.0.0.0:4000 &
       - run: nohup cloudflared tunnel --url http://localhost:4000 &
@@ -54,10 +54,7 @@ all the options that you can play around with!
 There's currently only a single option to specify the version. [Open an Issue]
 if there's more options you'd like to see! ❤️
 
-- **`code-server-version`:** The specific pinned version of the `code-server`
-  binary to install. This can also be the string `latest` to automatically
-  install the latest version. Also supports the `edge` value to install
-  prerelease versions. The default is `latest`.
+- **`code-server-version`:** Which version of code-server to install. This defaults to the latest stable release. Use `edge` to download the latest prerelease, or a `N.N.N` versions specifier if you wish. Use `latest` (the default) to download the latest version. This field **does not** support semver specifiers.
 
 ## Development
 
